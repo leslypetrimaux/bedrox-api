@@ -1,0 +1,16 @@
+<app>
+    <name>Mon Application</name>
+    <version>0.0.1</version>
+    <env>dev</env>
+    <database encode="utf8">
+        <driver>mysql</driver>
+        <host>localhost</host>
+        <user>framework</user>
+        <password>framework</password>
+        <schema>framework</schema>
+    </database>
+    <encodage>utf-8</encodage>
+    <format>json</format>
+    <router>./routes.xml</router>
+    <security>./security.xml</security>
+</app>

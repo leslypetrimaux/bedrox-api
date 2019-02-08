@@ -1,0 +1,15 @@
+<routes>
+    <route name="home"
+        path="/"
+        controller="App\Controllers\DefaultController::default" />
+    <route name="users_list"
+        path="/users"
+        controller="App\Controllers\DefaultController::list" />
+    <route name="users_get"
+        path="/users/get/{users}"
+        controller="App\Controllers\DefaultController::card" >
+        <params>
+            <users />
+        </params>
+    </route>
+</routes>

@@ -1,0 +1,10 @@
+<security>
+    <firewall type="auth">
+        <token encode="sha256"
+            secret="!+rh$Cvd^R*c3c272-!TLV=#CcW#_Bg8" />
+        <anonymous>
+            <route>home</route>
+            <route>users_list</route>
+        </anonymous>
+    </firewall>
+</security>

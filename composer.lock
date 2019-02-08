@@ -1,0 +1,58 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "a7c7d0122057de880d721011c08ce486",
+    "packages": [
+        {
+            "name": "bedrox/bedrox",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leslypetrimaux/bedrox.git",
+                "reference": "61a1710395bb7897b097f33ee062a44decaf9926"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leslypetrimaux/bedrox/zipball/61a1710395bb7897b097f33ee062a44decaf9926",
+                "reference": "61a1710395bb7897b097f33ee062a44decaf9926",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-json": "*",
+                "ext-libxml": "*",
+                "ext-pdo": "*",
+                "ext-simplexml": "*",
+                "php": ">=7.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bedrox\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Leslie",
+                    "email": "leslypetrimaux@gmail.com"
+                }
+            ],
+            "description": "Framework PHP",
+            "time": "2019-02-08T22:12:03+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "bedrox/bedrox": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
