@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72b8c7d7bf62b494e56734a234f0f156",
+    "content-hash": "eb0d0d8219751d4c072e7f8d5ed7d747",
     "packages": [
         {
             "name": "bedrox/bedrox",
