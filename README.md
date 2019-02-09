@@ -1,24 +1,13 @@
 # Bedrox API
 
-```diff
-- Mise à jour le 03/02/2019 par Leslie Petrimaux
-+ Avancement des développement en cours sur feature/Core.
-+ Changelog :
-+           - Intégration des normes PSR. Refactorisation et corrections. (En cours)
-+           - Gestion des erreurs SGBD {nom connexion hôte/user/pass/etc...} (En cours)
-+           - Intégration du SGBD "MariaDB"/"Oracle". (En cours)
-+           - Optimisation des traitements de l'EntityManager. (En cours)
-```
-
-## Développement
-
-### En cours
-
-> __feature/Core__ : Optimisation de la lecture des configurations & des traitements de retours *(JSON/XML)*. Intégration de nouveaux SGBD pour le traitement des entités *(MariaDB/Oracle)*. Ajout de nouveaux traitement en base de données. Optimisation des traitements via __EntityManager__. Refactorisation et corrections du code pour l'intégration des normes PSR.
-
 ## Installation
 
-_Cette section n'a pas encore été rédigée. Le framework est en tout début de développement. Il faudra préparer un package pour composer pour la version 1.0._
+_Cette section n'est pas encore complète. Le framework est en tout début de développement._
+
+Pour cloner le projet et utiliser le framework, utiliser la commande composer :
+```
+composer create-project bedrox/bedrox-api mon_projet
+```
 
 ## Configurations
 

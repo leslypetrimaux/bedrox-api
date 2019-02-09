@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leslypetrimaux/bedrox.git",
-                "reference": "e50b6fa905ce9026ae5b659aae4478920f817e38"
+                "reference": "2569eec6a998044a861b7a9161c151eb45d7df6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leslypetrimaux/bedrox/zipball/e50b6fa905ce9026ae5b659aae4478920f817e38",
-                "reference": "e50b6fa905ce9026ae5b659aae4478920f817e38",
+                "url": "https://api.github.com/repos/leslypetrimaux/bedrox/zipball/2569eec6a998044a861b7a9161c151eb45d7df6f",
+                "reference": "2569eec6a998044a861b7a9161c151eb45d7df6f",
                 "shasum": ""
             },
             "require": {
@@ -42,7 +42,7 @@
                 }
             ],
             "description": "Framework PHP",
-            "time": "2019-02-08T22:26:27+00:00"
+            "time": "2019-02-08T23:10:39+00:00"
         }
     ],
     "packages-dev": [],

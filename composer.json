@@ -8,9 +8,9 @@
       "email": "leslypetrimaux@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "require": {
-    "bedrox/bedrox": "dev-master"
+    "bedrox/bedrox": "~0.1"
   },
   "autoload": {
     "psr-4": {
