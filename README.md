@@ -4,9 +4,9 @@
 
 _Cette section n'est pas encore complète. Le framework est en tout début de développement._
 
-Pour cloner le projet et utiliser le framework, utiliser la commande composer :
+Pour installer le projet et utiliser le framework, utiliser la commande composer :
 ```
-composer create-project bedrox/bedrox-api mon_projet
+composer create-project bedrox/bedrox-api mon_projet --stability=dev
 ```
 
 ## Configurations
