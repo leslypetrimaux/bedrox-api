@@ -12,13 +12,14 @@ class DefaultController extends Controller
      */
     public function default(): array
     {
-        $queryBuilder = $this->getEntityManager()
-            ->getRepo('users')
-            ->createQueryBuilder()
-            ->query('select id, email, full_name from users');
+        $em = $this->getEntityManager();
+        $repo = $em->getRepo('users');
+        $findAll = $repo->findAll();
+        $find = $repo->find('5c69236cc9dd2');
         return array(
             'this' => $this,
-            '$queryBuilder' => $queryBuilder
+            'users' => $findAll,
+            'user' => $find
         );
     }
     /**

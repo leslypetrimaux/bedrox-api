@@ -10,34 +10,35 @@ use Bedrox\Core\Entity;
  */
 class Users extends Entity
 {
-    /** 
-     * @var int 
+    /**
+     * @var string
      * @DB\Column id
+     * @DB\Strategy uuid
      */
     public $id;
 
-    /** 
-     * @var string 
+    /**
+     * @var string
      * @DB\Column email
     */
     public $email;
 
-    /** 
-     * @var string 
+    /**
+     * @var string
      * @DB\Column password
     */
     public $password;
 
-    /** 
-     * @var string 
-     * @DB\Column full_name
+    /**
+     * @var string
+     * @DB\Column fullname
     */
     public $fullname;
 
     /**
-     * @return int|null
+     * @return string|null
      */
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }

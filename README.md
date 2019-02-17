@@ -6,7 +6,7 @@ _Cette section n'est pas encore complète. Le framework est en tout début de d�
 
 Pour installer le projet et utiliser le framework, utiliser la commande composer :
 ```
-composer create-project bedrox/bedrox-api mon_projet --stability=dev
+composer create-project bedrox/bedrox-api mon_projet
 ```
 
 ## Configurations
@@ -40,6 +40,7 @@ Pour configurer l'environnement de l'application, il faut remplir le fichier `./
 ```php
 sgbd() = array(
     [0] => 'mysql' // PDO MySQL
+    [1] => 'firebase' // Firebase Realtime Database
 );
 ```
 
@@ -196,6 +197,8 @@ Vous pouvez déclarer autant de route et de controller que vous le souhaitez. Af
 # Exemple de configuration
 
 `./environnement.xml`
+
+> Configuration avec MySQL :
 ```xml
 <app>
     <name>Mon Application</name>
@@ -213,6 +216,36 @@ Vous pouvez déclarer autant de route et de controller que vous le souhaitez. Af
     <router>./routes.xml</router>
     <security>./security.xml</security>
 </app>
+```
+
+> Configuration avec Firebase Realtime Database :
+```xml
+<app>
+    <name>Mon Application</name>
+    <version>0.0.1</version>
+    <env>dev</env>
+    <database>
+        <driver>firebase</driver>
+    </database>
+    <encodage>utf-8</encodage>
+    <format>json</format>
+    <router>./routes.xml</router>
+    <security>./security.xml</security>
+</app>
+```
+Firebase nécessite une configuration JSON fournie par __Google__. Remplissez le ficher `./firebase.conf.json` en vous basant sur cet exemple :
+```json
+{
+  "apiKey": "AIzaSyDPyRx3j5sUVAVg85BRAf9pfsuC6cs6B2o",
+  "authDomain": "bedrox-php.firebaseapp.com",
+  "databaseURL": "https://bedrox-php.firebaseio.com",
+  "projectId": "bedrox-php",
+  "storageBucket": "bedrox-php.appspot.com",
+  "messagingSenderId": "394304148045"
+}
+```
+```diff
+- ATTENTION ! Pour le moment, seuls les bases accessibles en lecture/écriture public sur Firebase fonctionnent. L'authentification Firebase n'est pas encore supportée.
 ```
 
 `./security.xml`
