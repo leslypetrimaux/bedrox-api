@@ -12,7 +12,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "bedrox/bedrox": "0.1.*@dev-master"
+    "bedrox/bedrox": "0.1.*@dev"
   },
   "autoload": {
     "psr-4": {
