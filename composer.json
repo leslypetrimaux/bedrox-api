@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "bedrox/bedrox": "*"
+    "bedrox/bedrox": "dev-master"
   },
   "autoload": {
     "psr-4": {
