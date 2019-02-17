@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb0d0d8219751d4c072e7f8d5ed7d747",
+    "content-hash": "df96292ec698a7cb0098eaa15035fa29",
     "packages": [
         {
             "name": "bedrox/bedrox",
-            "version": "0.1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leslypetrimaux/bedrox.git",
-                "reference": "2569eec6a998044a861b7a9161c151eb45d7df6f"
+                "reference": "9307140984cd661e3841211b5c68a2b43778db33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leslypetrimaux/bedrox/zipball/2569eec6a998044a861b7a9161c151eb45d7df6f",
-                "reference": "2569eec6a998044a861b7a9161c151eb45d7df6f",
+                "url": "https://api.github.com/repos/leslypetrimaux/bedrox/zipball/9307140984cd661e3841211b5c68a2b43778db33",
+                "reference": "9307140984cd661e3841211b5c68a2b43778db33",
                 "shasum": ""
             },
             "require": {
@@ -41,15 +41,17 @@
                     "email": "leslypetrimaux@gmail.com"
                 }
             ],
-            "description": "Framework PHP",
-            "time": "2019-02-08T23:10:39+00:00"
+            "description": "Framework indépendant développer pour une utilisation en tant qu'API. Le projet pourra renvoyer des retours dans différents langages : JSON, XML, HTML, etc...",
+            "time": "2019-02-17T03:07:37+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "bedrox/bedrox": 20
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
