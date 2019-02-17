@@ -2,17 +2,16 @@
   "name": "bedrox/bedrox-api",
   "description": "Framework indépendant développer pour une utilisation en tant qu'API. Le projet pourra renvoyer des retours dans différents langages : JSON, XML, HTML, etc...",
   "type": "project",
-  "version": "dev",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "authors": [
     {
       "name": "Leslie Petrimaux",
       "email": "leslypetrimaux@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "require": {
-    "bedrox/bedrox": "0.1.*@dev"
+    "bedrox/bedrox": "dev-master"
   },
   "autoload": {
     "psr-4": {
