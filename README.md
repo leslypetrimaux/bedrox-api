@@ -40,7 +40,9 @@ Pour configurer l'environnement de l'application, il faut remplir le fichier `./
 ```php
 sgbd() = array(
     [0] => 'mysql' // PDO MySQL
-    [1] => 'firebase' // Firebase Realtime Database
+    [1] => 'mysql' // PDO MySQL
+    [2] => 'firebase' // Firebase Realtime Database
+    [3] => 'firestore' // Firebase Cloud Firestore
 );
 ```
 
@@ -198,15 +200,16 @@ Vous pouvez déclarer autant de route et de controller que vous le souhaitez. Af
 
 `./environnement.xml`
 
-> Configuration avec MySQL :
+> Configuration avec MySQL ou MariaDB :
 ```xml
 <app>
     <name>Mon Application</name>
-    <version>0.0.1</version>
+    <version>0.1.5</version>
     <env>dev</env>
     <database encode="utf8">
         <driver>mysql</driver>
         <host>localhost</host>
+        <port>3306</port>
         <user>framework</user>
         <password>framework</password>
         <schema>framework</schema>
@@ -222,27 +225,21 @@ Vous pouvez déclarer autant de route et de controller que vous le souhaitez. Af
 ```xml
 <app>
     <name>Mon Application</name>
-    <version>0.0.1</version>
+    <version>0.1.5</version>
     <env>dev</env>
     <database>
-        <driver>firebase</driver>
+        <driver>firestore</driver>
+        <host>bedrox</host>
+        <apiKey>AZRzaSyDPyRx3j5sPWDg85LPEf9pfsuC6cs6B2o</apiKey>
+        <clientId>7324907452472-c19n27bu0pwd9g8tblpeqjrso70ij9az.apps.googleusercontent.com</clientId>
+        <oAuthToken>AZGaKympwD3ug7RlLPE0PaT3</oAuthToken>
+        <type>public</type>
     </database>
     <encodage>utf-8</encodage>
     <format>json</format>
     <router>./routes.xml</router>
     <security>./security.xml</security>
 </app>
-```
-Firebase nécessite une configuration JSON fournie par __Google__. Remplissez le ficher `./firebase.conf.json` en vous basant sur cet exemple :
-```json
-{
-  "apiKey": "AIzaSyDPyRx3j5sUVAVg85BRAf9pfsuC6cs6B2o",
-  "authDomain": "bedrox-php.firebaseapp.com",
-  "databaseURL": "https://bedrox-php.firebaseio.com",
-  "projectId": "bedrox-php",
-  "storageBucket": "bedrox-php.appspot.com",
-  "messagingSenderId": "394304148045"
-}
 ```
 ```diff
 - ATTENTION ! Pour le moment, seuls les bases accessibles en lecture/écriture public sur Firebase fonctionnent. L'authentification Firebase n'est pas encore supportée.
