@@ -1,8 +1,0 @@
-{
-  "apiKey": "AIzaSyDPyRx3j5sUVAVg85BRAf9pfsuC6cs6B2o",
-  "authDomain": "bedrox-php.firebaseapp.com",
-  "databaseURL": "https://bedrox-php.firebaseio.com",
-  "projectId": "bedrox-php",
-  "storageBucket": "bedrox-php.appspot.com",
-  "messagingSenderId": "394304148045"
-}

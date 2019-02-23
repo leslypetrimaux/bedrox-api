@@ -13,25 +13,19 @@ composer create-project bedrox/bedrox-api mon_projet
 
 ### Environnement
 
-Pour configurer l'environnement de l'application, il faut remplir le fichier `./environnement.xml` avec la synthaxe suivante :
+Pour configurer l'environnement de l'application, il faut remplir le fichier `./config/env.yaml` avec la synthaxe suivante :
 
-```xml
-<app>
-    <name>%NOM_APPLICATION%</name> <!-- Nom de l'application -->
-    <version>%VERSION_NUMBER%</version> <!-- Version de l'application -->
-    <env>dev|prod</env> <!-- Environnement du serveur -->
-    <database encode="sgbd_encode()">  <!-- Paramètre de la BDD (+encodage de caractères) -->
-        <driver>sgbd()</driver> <!-- SGBD utilisé dans la liste ci-dessous -->
-        <host>%DB_HOSTNAME%</host> <!-- Nom d'hôte/Adresse IP du serveur BDD -->
-        <user>%DB_USER%</user> <!-- Nom d'utilisateur -->
-        <password>%DB_PASS%</password> <!-- Mot de passe utilisateur -->
-        <schema>%DB_SCHEMA%</schema> <!-- Schema/SSID/ServiceName -->
-    </database>
-    <encodage>app_encode()</encodage> <!-- Encode de caractères des retours de l'application -->
-    <format>app_format()</format> <!-- Format de retour de l'application -->
-    <router>%RELATIVE_PATH_TO_ROUTER_FILE_FROM_ROOT_PROJECT%</router> <!-- Chemin du fichier pour le Router -->
-    <security>%RELATIVE_PATH_TO_SECURITY_FILE_FROM_ROOT_PROJECT%</security> <!-- Chemin du fichier pour la Sécurité -->
-</app>
+```yaml
+app:
+  name: '%APP_NAME%'
+  version: '%APP_VERSION%'
+  env: 'dev'
+  database:
+    ### Voir les exemples pour les différents SGBD
+  encodage: 'app_encode()'
+  format: 'app_format()'
+  router: '%RELATIVE_PATH_TO_ROUTER_FILE_FROM_ROOT_PROJECT%'
+  security: '%RELATIVE_PATH_TO_SECURITY_FILE_FROM_ROOT_PROJECT%'
 ```
 
 <details>
@@ -40,7 +34,7 @@ Pour configurer l'environnement de l'application, il faut remplir le fichier `./
 ```php
 sgbd() = array(
     [0] => 'mysql' // PDO MySQL
-    [1] => 'mysql' // PDO MySQL
+    [1] => 'mariadb' // PDO MySQL
     [2] => 'firebase' // Firebase Realtime Database
     [3] => 'firestore' // Firebase Cloud Firestore
 );
@@ -84,18 +78,18 @@ app_format() = array(
 
 ### Security
 
-Afin de configurer le firewall, il faut référencer le fichier `security.xml` dans le fichier d'__environnement__ et le remplir de la manière suivante :
+Afin de configurer le firewall, il faut référencer le fichier `./config/security.yaml` dans le fichier d'__environnement__ et le remplir de la manière suivante :
 
-```xml
-<security>
-    <firewall type="app_auth()">
-        <token encode="token_algos()"
-            secret="%APP_SECRET%" /> <!-- No "&" char, return critical error -->
-        <anonymous>
-            <route>%ROUTE_NAME%</route>
-        </anonymous>
-    </firewall>
-</security>
+```yaml
+security:
+  firewall:
+    type: 'app_auth()'
+    token:
+      encode: 'token_algos()'
+      secret: '%APP_SECRET%'
+    anonymous:
+      %ROUTE_NAME%
+      %ROUTE_NAME%
 ```
 
 <details>
@@ -175,25 +169,18 @@ token_algos() = array(
 
 ### Routes
 
-Vous pouvez déclarer autant de route et de controller que vous le souhaitez. Afin de configurer une route, référencez le fichier `routes.xml` dans le fichier d'__environnement__. Vous pouvez le remplir de la manière suivante :
+Vous pouvez déclarer autant de route et de controller que vous le souhaitez. Afin de configurer une route, référencez le fichier `./config/routes.yaml` dans le fichier d'__environnement__. Vous pouvez le remplir de la manière suivante :
 
-```xml
-<routes>
-    <!-- Route sans paramètre -->
-    <route name="%ROUTE_NAME%"
-        path="%ROUTE_PATH%"
-        controller="%NAMESPACE_CLASSNAME%::%FUNCTION_NAME%"
-        (render="app_format()") />
-    <!-- Route avec paramètre(s) -->
-    <route name="%ROUTE_NAME%"
-        path="%ROUTE_PATH%{%PARAM%}"
-        controller="%NAMESPACE_CLASSNAME%::%FUNCTION_NAME%"
-        (render="app_format()") >
-        <params>
-            <entity /> <!-- entity AS %PARAM% -->
-        </params>
-    </route>
-</routes>
+```yaml
+%ROUTE_NAME%:
+  path: '%ROUTE_PATH%'
+  controller: '%NAMESPACE\CLASSNAME%::%FUNCTION_NAME%'
+
+%ROUTE_NAME%:
+  path: '%ROUTE_PATH%{%PARAM%}'
+  controller: '%NAMESPACE\CLASSNAME%::%FUNCTION_NAME%'
+  params:
+    %PARAM%
 ```
 
 # Exemple de configuration
@@ -201,79 +188,72 @@ Vous pouvez déclarer autant de route et de controller que vous le souhaitez. Af
 `./environnement.xml`
 
 > Configuration avec MySQL ou MariaDB :
-```xml
-<app>
-    <name>Mon Application</name>
-    <version>0.1.5</version>
-    <env>dev</env>
-    <database encode="utf8">
-        <driver>mysql</driver>
-        <host>localhost</host>
-        <port>3306</port>
-        <user>framework</user>
-        <password>framework</password>
-        <schema>framework</schema>
-    </database>
-    <encodage>utf-8</encodage>
-    <format>json</format>
-    <router>./routes.xml</router>
-    <security>./security.xml</security>
-</app>
+```yaml
+app:
+  name: 'Mon Application'
+  version: '0.1.6'
+  env: 'dev'
+  database:
+    driver: 'mariadb'
+    host: 'localhost'
+    port: '3306'
+    user: 'framework'
+    password: 'framework'
+    schema: 'framework'
+  encodage: 'utf-8'
+  format: 'json'
+  router: './routes.yaml'
+  security: './security.yaml'
 ```
 
 > Configuration avec Firebase Realtime Database :
-```xml
-<app>
-    <name>Mon Application</name>
-    <version>0.1.5</version>
-    <env>dev</env>
-    <database>
-        <driver>firestore</driver>
-        <host>bedrox</host>
-        <apiKey>AZRzaSyDPyRx3j5sPWDg85LPEf9pfsuC6cs6B2o</apiKey>
-        <clientId>7324907452472-c19n27bu0pwd9g8tblpeqjrso70ij9az.apps.googleusercontent.com</clientId>
-        <oAuthToken>AZGaKympwD3ug7RlLPE0PaT3</oAuthToken>
-        <type>public</type>
-    </database>
-    <encodage>utf-8</encodage>
-    <format>json</format>
-    <router>./routes.xml</router>
-    <security>./security.xml</security>
-</app>
+```yaml
+app:
+  name: 'Mon Application'
+  version: '0.1.6'
+  env: 'dev'
+  database:
+    driver: 'firestore'
+    host: 'bedrox-php'
+    apiKey: 'AIzaSyDPyRx3j5sUVAVg85BRAf9pfsuC6cs6B2o'
+    clientId: '394304148045-c19n27bu0phd9g8tbgvnqjrso70ij9ag.apps.googleusercontent.com'
+    oAuthToken: 'OKGaKymlnW3ug7RlHYY0PaT3'
+    type: 'public'
+  encodage: 'utf-8'
+  format: 'json'
+  router: './routes.yaml'
+  security: './security.yaml'
 ```
 ```diff
 - ATTENTION ! Pour le moment, seuls les bases accessibles en lecture/écriture public sur Firebase fonctionnent. L'authentification Firebase n'est pas encore supportée.
 ```
 
 `./security.xml`
-```xml
-<security>
-    <firewall type="auth">
-        <token encode="sha256"
-            secret="!+rh$Cvd^R*c3c272-!TLV=#CcW#_Bg8" />
-        <anonymous>
-            <route>home</route>
-        </anonymous>
-    </firewall>
-</security>
+```yaml
+security:
+  firewall:
+    type: 'auth'
+    token:
+      encode: 'sha256'
+      secret: '!+rh$Cvd^R*c3c272-!TLV=#CcW#_Bg8'
+    anonymous:
+      home
 ```
 
 `./routes.xml`
-```xml
-<routes>
-    <route name="home"
-        path="/"
-        controller="App\Controllers\DefaultController::default" />
-    <route name="users_list"
-        path="/users"
-        controller="App\Controllers\DefaultController::list" />
-    <route name="users_get"
-        path="/users/get/{users}"
-        controller="App\Controllers\DefaultController::card" >
-        <params>
-            <users />
-        </params>
-    </route>
-</routes>
+```yaml
+home:
+  path: '/'
+  controller: 'App\Controllers\DefaultController::default'
+
+users_list:
+  path: '/users'
+  controller: 'App\Controllers\DefaultController::list'
+
+users_get:
+  path: '/users/get/{users}'
+  controller: 'App\Controllers\DefaultController::card'
+  params:
+    users
 ```
 
