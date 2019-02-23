@@ -2,8 +2,13 @@
     <name>Mon Application</name>
     <version>0.0.1</version>
     <env>dev</env>
-    <database>
-        <driver>firebase</driver>
+    <database encode="utf8">
+        <driver>firestore</driver>
+        <host>bedrox-php</host>
+        <apiKey>AIzaSyDPyRx3j5sUVAVg85BRAf9pfsuC6cs6B2o</apiKey>
+        <clientId>394304148045-c19n27bu0phd9g8tbgvnqjrso70ij9ag.apps.googleusercontent.com</clientId>
+        <oAuthToken>OKGaKymlnW3ug7RlHYY0PaT3</oAuthToken>
+        <type>public</type>
     </database>
     <encodage>utf-8</encodage>
     <format>json</format>

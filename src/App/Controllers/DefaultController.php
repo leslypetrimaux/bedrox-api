@@ -15,7 +15,8 @@ class DefaultController extends Controller
         $em = $this->getEntityManager();
         $repo = $em->getRepo('users');
         $findAll = $repo->findAll();
-        $find = $repo->find('5c69236cc9dd2');
+        // $find = $repo->find('5c69236cc9dd2');
+        $find = $repo->find('e4lmEiOkx8SusKTF6Irp');
         return array(
             'this' => $this,
             'users' => $findAll,
