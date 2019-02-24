@@ -10,4 +10,4 @@ users_get:
   path: '/users/get/{users}'
   controller: 'App\Controllers\DefaultController::card'
   params:
-    users: 'string'
+    users
