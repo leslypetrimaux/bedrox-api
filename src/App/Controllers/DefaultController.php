@@ -15,12 +15,11 @@ class DefaultController extends Controller
         $em = $this->getEntityManager();
         $repo = $em->getRepo('users');
         $findAll = $repo->findAll();
-        // $find = $repo->find('5c69236cc9dd2');
-        $find = $repo->find('e4lmEiOkx8SusKTF6Irp');
+        $u = $repo->find('5c7ed8776285a2.74644033');
         return array(
             'this' => $this,
             'users' => $findAll,
-            'user' => $find
+            'user' => $u
         );
     }
     /**
@@ -32,7 +31,6 @@ class DefaultController extends Controller
         $repo = $em->getRepo('users');
         $findAll = $repo->findAll();
         return array(
-            'this' => $this,
             'users' => $findAll
         );
     }
@@ -44,7 +42,6 @@ class DefaultController extends Controller
     public function card(Users $user): array
     {
         return array(
-            'this' => $this,
             'user' => $user
         );
     }

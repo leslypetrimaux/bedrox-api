@@ -12,26 +12,26 @@ class Users extends Entity
 {
     /**
      * @var string
-     * @DB\Column id
+     * @DB\Column {name="id", type="string", length="50"}
      * @DB\Strategy uuid
      */
     public $id;
 
     /**
      * @var string
-     * @DB\Column email
+     * @DB\Column {name="email", type="string", length="255"}
     */
     public $email;
 
     /**
      * @var string
-     * @DB\Column password
+     * @DB\Column {name="is_admin", type="bool"}
     */
-    public $password;
+    public $isAdmin;
 
     /**
      * @var string
-     * @DB\Column fullname
+     * @DB\Column {name="fullname", type="string", length="255"}
     */
     public $fullname;
 
@@ -62,20 +62,20 @@ class Users extends Entity
     }
 
     /**
-     * @return null|string
+     * @return bool
      */
-    public function getPassword(): ?string
+    public function isAdmin(): bool
     {
-        return $this->password;
+        return $this->isAdmin;
     }
 
     /**
-     * @param string $password
+     * @param bool $isAdmin
      * @return Users|null
      */
-    public function setPassword(string $password): ?self
+    public function setAdmin(bool $isAdmin): ?self
     {
-        $this->password = $password;
+        $this->isAdmin = $isAdmin;
         return $this;
     }
 
