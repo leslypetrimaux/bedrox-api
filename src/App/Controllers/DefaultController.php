@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use Bedrox\Core\Controller;
 use App\Entity\Users;
+use Bedrox\Core\Controller;
 
 class DefaultController extends Controller
 {
@@ -12,14 +12,8 @@ class DefaultController extends Controller
      */
     public function default(): array
     {
-        $em = $this->getEntityManager();
-        $repo = $em->getRepo('users');
-        $findAll = $repo->findAll();
-        $u = $repo->find('5c7ed8776285a2.74644033');
         return array(
             'this' => $this,
-            'users' => $findAll,
-            'user' => $u
         );
     }
     /**
@@ -27,8 +21,7 @@ class DefaultController extends Controller
      */
     public function list(): array
     {
-        $em = $this->getEntityManager();
-        $repo = $em->getRepo('users');
+        $repo = $this->_em->getRepository(Users::class);
         $findAll = $repo->findAll();
         return array(
             'users' => $findAll
@@ -41,8 +34,10 @@ class DefaultController extends Controller
      */
     public function card(Users $user): array
     {
+        $repo = $this->_em->getRepository(Users::class);
+        $find = $repo->find($user);
         return array(
-            'user' => $user
+            'user' => $find
         );
     }
 }

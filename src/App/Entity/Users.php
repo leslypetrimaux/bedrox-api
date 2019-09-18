@@ -2,98 +2,97 @@
 
 namespace App\Entity;
 
-use Bedrox\Core\Entity;
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\Table;
 
 /**
- * @DB\Table users
- * @DB\Primary id
+ * @Entity
+ * @Table(name="users")
  */
-class Users extends Entity
+class Users
 {
     /**
-     * @var string
-     * @DB\Column {name="id", type="string", length="50"}
-     * @DB\Strategy uuid
+     * @Id
+     * @Column(type="string", name="id")
      */
     public $id;
 
     /**
-     * @var string
-     * @DB\Column {name="email", type="string", length="255"}
-    */
+     * @Column(type="string", name="email")
+     */
     public $email;
 
     /**
-     * @var string
-     * @DB\Column {name="is_admin", type="bool"}
-    */
-    public $isAdmin;
+     * @Column(type="string", name="password")
+     */
+    public $password;
 
     /**
-     * @var string
-     * @DB\Column {name="fullname", type="string", length="255"}
-    */
+     * @Column(type="string", name="fullname")
+     */
     public $fullname;
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getId(): ?string
+    public function getId(): string
     {
         return $this->id;
     }
 
     /**
-     * @return null|string
-     */
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    /**
      * @param string $email
-     * @return Users|null
+     * @return Users
      */
-    public function setEmail(string $email): ?self
+    public function setEmail(string $email): Users
     {
         $this->email = $email;
         return $this;
     }
 
     /**
-     * @return bool
+     * @return string
      */
-    public function isAdmin(): bool
+    public function getEmail(): string
     {
-        return $this->isAdmin;
+        return $this->email;
     }
 
     /**
-     * @param bool $isAdmin
-     * @return Users|null
+     * @param string $password
+     * @return Users
      */
-    public function setAdmin(bool $isAdmin): ?self
+    public function setPassword(string $password): Users
     {
-        $this->isAdmin = $isAdmin;
+        $this->password = $password;
         return $this;
     }
 
     /**
-     * @return null|string
+     * @return string
      */
-    public function getFullname(): ?string
+    public function getPassword(): string
     {
-        return $this->fullname;
+        return $this->password;
     }
 
     /**
      * @param string $fullname
-     * @return Users|null
+     * @return Users
      */
-    public function setFullname(string $fullname): ?self
+    public function setFullname(string $fullname): Users
     {
         $this->fullname = $fullname;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullname(): string
+    {
+        return $this->fullname;
     }
 }
