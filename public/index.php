@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Bedrox v0.4
+ * Bedrox v0.5
  *
  * Author: Leslie Petrimaux
  * Create: 08/12/2018
