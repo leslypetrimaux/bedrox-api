@@ -7,7 +7,7 @@ users_list:
   controller: 'App\Controllers\DefaultController::list'
 
 users_get:
-  path: '/users/get/{users.id}/[int]'
+  path: '/users/get/{users.id}/[num]'
   controller: 'App\Controllers\DefaultController::card'
   entity:
     users

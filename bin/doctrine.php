@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpIncludeInspection */
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -19,7 +20,6 @@ if ( ! is_readable($configFile)) {
 
 $commands = [];
 
-/** @var HelperSet $configFile */
 $helperSet = require $configFile;
 
 if ( ! ($helperSet instanceof HelperSet)) {
