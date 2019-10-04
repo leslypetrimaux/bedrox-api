@@ -1,6 +1,10 @@
 security:
   firewall:
-    type: 'no-auth'
+    type: 'public'
+    entity:
+      class: 'App\Entity\Users'
+      login: 'email'
+      password: 'password'
     token:
       encode: 'sha256'
       secret: '!+rh$Cvd^R*c3c272-!TLV=#CcW#_Bg8'

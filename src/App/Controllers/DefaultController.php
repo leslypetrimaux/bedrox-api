@@ -12,6 +12,9 @@ class DefaultController extends Controller
      */
     public function default(): array
     {
+        $repo = $this->_em->getRepository(Users::class);
+        $findAll = $repo->findAll();
+        dump($findAll);
         return array(
             'this' => $this,
         );
@@ -30,14 +33,14 @@ class DefaultController extends Controller
 
     /**
      * @param Users $user
+     * @param int $int
      * @return array
      */
-    public function card(Users $user): array
+    public function card(Users $user, int $int): array
     {
-        $repo = $this->_em->getRepository(Users::class);
-        $find = $repo->find($user);
         return array(
-            'user' => $find
+            'user' => $user,
+            'int' => $int
         );
     }
 }
