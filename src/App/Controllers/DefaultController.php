@@ -12,9 +12,6 @@ class DefaultController extends Controller
      */
     public function default(): array
     {
-        $repo = $this->_em->getRepository(Users::class);
-        $findAll = $repo->findAll();
-        dump($findAll);
         return array(
             'this' => $this,
         );

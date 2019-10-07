@@ -15,8 +15,14 @@
   },
   "autoload": {
     "psr-4": {
+      "Bin\\": "bin/",
       "Bedrox\\": "vendor/bedrox/bedrox/src/",
       "App\\": "src/App/"
     }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "Bin\\Installer::Setup"
+    ]
   }
 }
