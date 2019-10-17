@@ -14,8 +14,11 @@ class DefaultController extends Controller
     {
         return array(
             'this' => $this,
+            'token' => $this->session->get('APP_TOKEN'),
+            'env' => $_SERVER['APP']
         );
     }
+
     /**
      * @return array
      */

@@ -1,13 +1,8 @@
 security:
   firewall:
-    type: 'public'
-    entity:
-      class: 'App\Entity\Users'
-      login: 'email'
-      password: 'password'
+    type: 'token'
     token:
       encode: 'sha256'
-      secret: 'secretKey'
+      secret: ']Âd§TIhp[btc`EÃn!*^]ÂhidRO}¹eÃBQ(p,Q{[ÃOf66DÂ7C7'
     anonymous:
       home
-      users_list

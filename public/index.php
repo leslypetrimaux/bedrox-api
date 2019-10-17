@@ -12,10 +12,19 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Kernel;
 use Bedrox\Core\Env;
+use Bedrox\Core\Exceptions\BedroxException;
 use Bedrox\Core\Request;
 
+/**
+ * Environment
+ */
 if (!isset($_SERVER['APP']['ENV'])) {
     (new Env())->load(__DIR__ . Env::FILE_ENV);
+} else {
+    BedroxException::render(
+      'BEDROX_LOADER',
+      'Impossible de charger correctement l\'environnement de l\'Application. Le projet n\'est pas valide. Rendez-vous sur la documentation.'
+    );
 }
 
 /**
