@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Cli\Console;
 use Bedrox\Core\Interfaces\iKernel;
 use Bedrox\Core\Request;
 use Bedrox\Core\Response;
@@ -45,5 +46,10 @@ class Kernel extends Skeleton implements iKernel
     public function terminate(Response $response): void
     {
         $response->terminate($response);
+    }
+
+    public static function getCustomCmd(): array
+    {
+        return Console::addCommands();
     }
 }

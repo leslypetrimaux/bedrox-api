@@ -3,44 +3,56 @@
 namespace App\Controllers;
 
 use App\Entity\Users;
+use App\Services\UsersService;
 use Bedrox\Core\Controller;
+use Bedrox\Core\Render;
 
 class DefaultController extends Controller
 {
     /**
-     * @return array
+     * @return Render
      */
-    public function default(): array
+    public function default(): Render
     {
-        return array(
+        return new Render([
             'this' => $this,
-            'token' => $this->session->get('APP_TOKEN'),
-            'env' => $_SERVER['APP']
-        );
-    }
-
-    /**
-     * @return array
-     */
-    public function list(): array
-    {
-        $repo = $this->_em->getRepository(Users::class);
-        $findAll = $repo->findAll();
-        return array(
-            'users' => $findAll
-        );
+            'auth' => $this->getAuth(),
+            'token' => $this->getToken()
+        ]);
     }
 
     /**
      * @param Users $user
-     * @param int $int
-     * @return array
+     * @param string $data
+     * @return Render
      */
-    public function card(Users $user, int $int): array
+    public function custom(Users $user, string $data): Render
     {
-        return array(
+        return new Render([
             'user' => $user,
-            'int' => $int
-        );
+            'string' => $data
+        ]);
+    }
+
+    /**
+     * @param UsersService $usersService
+     * @return Render
+     */
+    public function list(UsersService $usersService): Render
+    {
+        return new Render([
+            'users' => $usersService->list()
+        ]);
+    }
+
+    /**
+     * @param Users $user
+     * @return Render
+     */
+    public function card(Users $user): Render
+    {
+        return new Render([
+            'user' => $user
+        ]);
     }
 }

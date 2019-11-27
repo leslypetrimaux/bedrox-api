@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Bedrox v0.5
+ * Bedrox v0.6
  *
  * Author: Leslie Petrimaux
  * Create: 08/12/2018
- * Stable: xx/xx/2019
+ * Stable: 23/11/2019
  */
 
 require_once __DIR__ . '/../vendor/autoload.php';
