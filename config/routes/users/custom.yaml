@@ -1,0 +1,3 @@
+users_custom_home:
+  path: ''
+  controller: 'App\Controllers\DefaultController::usersCustom'

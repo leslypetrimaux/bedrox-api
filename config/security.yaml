@@ -1,6 +1,6 @@
 security:
   firewall:
-    type: 'token'
+    type: 'public'
     token:
       encode: 'sha256'
       secret: ']Âd§TIhp[btc`EÃn!*^]ÂhidRO}¹eÃBQ(p,Q{[ÃOf66DÂ7C7'

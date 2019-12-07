@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Cli\Console;
 use Bedrox\Core\Interfaces\iKernel;
 use Bedrox\Core\Request;
 use Bedrox\Core\Response;
@@ -31,6 +32,8 @@ class Kernel extends Skeleton implements iKernel
     }
 
     /**
+     * Retrieve the Request and handle it to send a Response
+     *
      * @param Request $request
      * @return Response
      */
@@ -40,10 +43,22 @@ class Kernel extends Skeleton implements iKernel
     }
 
     /**
+     * Execute the Controller and display the result
+     *
      * @param Response $response
      */
     public function terminate(Response $response): void
     {
         $response->terminate($response);
+    }
+
+    /**
+     * Add custom commands to the Bedrox CLI
+     *
+     * @return array
+     */
+    public static function getCustomCmd(): array
+    {
+        return Console::addCommands();
     }
 }

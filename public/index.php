@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Bedrox v0.5
+ * Bedrox v0.6
  *
  * Author: Leslie Petrimaux
  * Create: 08/12/2018
- * Stable: xx/xx/2019
+ * Bêta: 08/12/2019
  */
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -18,19 +18,19 @@ use Bedrox\Core\Request;
 /**
  * Environment
  */
-if (!isset($_SERVER['APP']['ENV'])) {
-    (new Env())->load(__DIR__ . Env::FILE_ENV);
+if (!isset($_SERVER[Env::APP][Env::ENV])) {
+    (new Env)->load(__DIR__ . Env::FILE_ENV);
 } else {
     BedroxException::render(
       'BEDROX_LOADER',
-      'Impossible de charger correctement l\'environnement de l\'Application. Le projet n\'est pas valide. Rendez-vous sur la documentation.'
+      'Unable to load the Application environment. Project not valid. Please, check the documentation.'
     );
 }
 
 /**
  * App
  */
-$kernel = new Kernel($_SERVER['APP']['ENV'] ?? 'dev', $_SERVER['APP']['DEBUG'] ?? ('prod' !== ($_SERVER['APP']['ENV'] ?? 'dev')));
+$kernel = new Kernel($_SERVER[Env::APP][Env::ENV] ?? 'dev', $_SERVER[Env::APP][Env::DEBUG] ?? ('prod' !== ($_SERVER[Env::APP][Env::ENV] ?? 'dev')));
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $kernel->terminate($response);

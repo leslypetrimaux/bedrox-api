@@ -1,0 +1,13 @@
+users_list:
+  path: ''
+  controller: 'App\Controllers\DefaultController::list'
+
+users_get:
+  path: '/get/{users.id}'
+  controller: 'App\Controllers\DefaultController::card'
+  params:
+    users
+
+users_custom:
+  path: '/custom'
+  require: 'routes/users/custom'
