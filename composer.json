@@ -20,7 +20,7 @@
     }
   },
   "scripts": {
-    "configure": [
+    "post-package-install": [
       "@php bin/console bedrox:configure:security"
     ]
   }
