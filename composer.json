@@ -20,7 +20,7 @@
     }
   },
   "scripts": {
-    "post-dependencies-solving": [
+    "post-package-install": [
       "Bedrox\\Config\\Setup::PostInstall"
     ]
   }
