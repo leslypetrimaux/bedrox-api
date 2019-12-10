@@ -2,7 +2,7 @@ security:
   firewall:
     type: 'public'
     token:
-      encode: 'sha256'
-      secret: ']Âd§TIhp[btc`EÃn!*^]ÂhidRO}¹eÃBQ(p,Q{[ÃOf66DÂ7C7'
+      encode: 'encodeAlgo'
+      secret: 'secretKey'
     anonymous:
       home
