@@ -3,7 +3,7 @@
   "license": "PHP-3.01",
   "description": "Framework indépendant développer pour une utilisation en tant qu'API. Le projet pourra renvoyer des retours dans différents langages : JSON, XML, HTML, etc...",
   "type": "project",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "authors": [
     {
       "name": "Leslie Petrimaux",
@@ -20,8 +20,8 @@
     }
   },
   "scripts": {
-    "post-package-install": [
-      "Bedrox\\Config\\Setup::PostInstall"
+    "configure": [
+      "@php bin/console bedrox:configure:security"
     ]
   }
 }
